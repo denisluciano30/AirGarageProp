@@ -23,6 +23,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+
 
 
 const AppTab = createBottomTabNavigator();
@@ -31,11 +33,9 @@ import Garagens from '../pages/Garagens';
 import Notificacoes from '../pages/Notificacoes'
 import Locacoes from '../pages/Locacoes';
 import Faturamento from '../pages/Faturamento';
-import Perfil from '../pages/Perfil';
-// import Profile from '../pages/Profile';
-// import Garage from '../pages/Garage';
-// import EditProfile from '../pages/EditProfile';
-// import Disponibilidade from '../pages/Disponibilidade';
+import Profile from '../pages/Profile';
+import EditProfile from '../pages/EditProfile';
+
 
 
 function TabRoutes() {
@@ -48,10 +48,10 @@ function TabRoutes() {
         headerShown:false,
         tabBarIcon: ({ focused, color, size }) => {
 
-          if (route.name === 'Página Inicial') {
+          if (route.name === 'Garagens') {
             return focused
-              ? <MaterialCommunityIcons name='home' size={size} color={color} />
-              : <MaterialCommunityIcons name='home-outline' size={size} color={color} />;
+              ? <FontAwesome name='car' size={size} color={color} />
+              : <MaterialCommunityIcons name='car' size={size} color={color} />;
           } else if (route.name === 'Notificações') {
             return focused
               ? <Ionicons name='md-notifications' size={size} color={color} />
@@ -60,11 +60,11 @@ function TabRoutes() {
             return focused
               ? <Ionicons name='ios-list-box' size={size} color={color} />
               : <Ionicons name='ios-list' size={size} color={color} />;
-          }else if (route.name === 'Favoritos') {
+          }else if (route.name === 'Faturamento') {
             return focused
-              ? <MaterialCommunityIcons name='heart' size={size} color={color} />
-              : <MaterialCommunityIcons name='heart-outline' size={size} color={color} />;
-          }else if (route.name === 'Perfil') {
+              ? <FontAwesome5 name='money-bill' size={size} color={color} />
+              : <FontAwesome name='money' size={size} color={color} />;
+           }else if (route.name === 'Perfil') {
             return focused
               ? <FontAwesome name='user' size={size} color={color} />
               : <FontAwesome name='user-o' size={size} color={color} />;
@@ -73,18 +73,18 @@ function TabRoutes() {
         },
       })}
       tabBarOptions={{
-        activeBackgroundColor: "#F4C20D",
-        inactiveBackgroundColor: "#F4C20D",
+        activeBackgroundColor: "#ff6600",
+        inactiveBackgroundColor: "#ff6600",
         activeTintColor: 'black',
         inactiveTintColor: 'black',
       }}
 
 
       >
-        <AppTab.Screen name="Página Inicial" component={Home}  />
-        <AppTab.Screen name="Notificações" component={Notification} />
-        <AppTab.Screen name="Locações" component={Leasing} tabBarOptions={{ activeBackgroundColor:"#F4C20D" }} />
-        <AppTab.Screen name="Favoritos" component={Favorite} />
+        <AppTab.Screen name="Garagens" component={Garagens}  />
+        <AppTab.Screen name="Notificações" component={Notificacoes} />
+        <AppTab.Screen name="Locações" component={Locacoes} tabBarOptions={{ activeBackgroundColor:"#F4C20D" }} />
+        <AppTab.Screen name="Faturamento" component={Faturamento} />
         <AppTab.Screen name="Perfil" component={Profile} />
       </AppTab.Navigator>
   );
@@ -101,9 +101,22 @@ function AppRoutes({ navigation, route  }) {
       }}
     >
       <AppStack.Screen name="Home" component={TabRoutes} />
-      <AppStack.Screen name="Garage" component={Garage} />
-      <AppStack.Screen name="EditProfileScreen" component={EditProfile} />
-      <AppStack.Screen name="Disponibilidade" component={Disponibilidade} />
+      <AppStack.Screen
+        name="EditProfile"
+        component={EditProfile}
+        options={{
+          title: 'Editar Perfil',
+          headerStyle: {
+            backgroundColor: '#F4C20D',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          headerShown: true,
+          // headerTitleAlign: "center",
+        }}
+      />
 
     </AppStack.Navigator>
   );

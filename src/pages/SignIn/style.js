@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'blue',
     width: '90%',
   },
+
   input: {
     backgroundColor: '#D5DDE0',
     width: '90%',
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   btnSubmit: {
-    backgroundColor: '#F4C20D',
+    backgroundColor: '#ff6600',
     width: 330,
     height: 45,
     alignItems: 'center',
@@ -54,6 +55,12 @@ const styles = StyleSheet.create({
   forgetText:{
 
   },
+  textAboveInput: {
+    alignItems: "center"
+  },
+  containerTextAboveInput: {
+    alignItems: "flex-start",
+  }
 });
 
 export default styles;
