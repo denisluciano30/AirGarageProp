@@ -95,6 +95,7 @@ function HomeScreen({ navigation }) {
       
       <TouchableOpacity
         style={styles.btnCadastrarGaragem}
+        onPress={() =>  navigation.navigate('AddGaragePage1')}
       >
         <View style={styles.containerButtonCadastrarGaragem}>
           <Text style={styles.textCadastrarGaragem}>Cadastrar garagem</Text>

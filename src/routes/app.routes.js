@@ -35,6 +35,8 @@ import Locacoes from '../pages/Locacoes';
 import Faturamento from '../pages/Faturamento';
 import Profile from '../pages/Profile';
 import EditProfile from '../pages/EditProfile';
+import AddGaragePage1 from '../pages/AddGaragem/Page1';
+import AddGaragePage2 from '../pages/AddGaragem/Page2';
 
 
 
@@ -99,6 +101,7 @@ function AppRoutes({ navigation, route  }) {
       screenOptions={{
         headerShown:false,
       }}
+      initialRouteName="AddGaragePage2"
     >
       <AppStack.Screen name="Home" component={TabRoutes} />
       <AppStack.Screen
@@ -107,7 +110,39 @@ function AppRoutes({ navigation, route  }) {
         options={{
           title: 'Editar Perfil',
           headerStyle: {
-            backgroundColor: '#F4C20D',
+            backgroundColor: '#FF6600',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          headerShown: true,
+          // headerTitleAlign: "center",
+        }}
+      />
+      <AppStack.Screen
+        name="AddGaragePage1"
+        component={AddGaragePage1}
+        options={{
+          title: 'Adicionar Garagem',
+          headerStyle: {
+            backgroundColor: '#FF6600',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          headerShown: true,
+          // headerTitleAlign: "center",
+        }}
+      />
+      <AppStack.Screen
+        name="AddGaragePage2"
+        component={AddGaragePage2}
+        options={{
+          title: 'Adicionar Garagem',
+          headerStyle: {
+            backgroundColor: '#FF6600',
           },
           headerTintColor: '#000',
           headerTitleStyle: {
